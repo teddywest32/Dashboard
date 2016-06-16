@@ -1,6 +1,7 @@
 <?php namespace Modules\Dashboard\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Dashboard\Entities\Widget;
 use Modules\Dashboard\Repositories\Cache\CacheWidgetDecorator;
 use Modules\Dashboard\Repositories\Eloquent\EloquentWidgetRepository;
@@ -9,6 +10,7 @@ use Modules\Workshop\Manager\StylistThemeManager;
 
 class DashboardServiceProvider extends ServiceProvider
 {
+    use CanPublishConfiguration;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -48,6 +50,8 @@ class DashboardServiceProvider extends ServiceProvider
             'dashboard',
             $theme->find(config('asgard.core.core.admin-theme'))->getPath() . '/views/modules/dashboard'
         );
+        
+        $this->publishConfig('dashboard', 'permissions');
     }
 
     /**
