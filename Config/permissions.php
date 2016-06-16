@@ -1,10 +1,8 @@
 <?php
 return [
-    'dashboard.grid' => [
-        'save',
-        'reset',
-    ],
     'dashboard' => [
         'index',
+        'update',
+        'reset',
     ],
 ];
