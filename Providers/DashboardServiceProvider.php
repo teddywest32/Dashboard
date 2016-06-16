@@ -4,6 +4,7 @@ use Illuminate\Support\ServiceProvider;
 use Modules\Dashboard\Entities\Widget;
 use Modules\Dashboard\Repositories\Cache\CacheWidgetDecorator;
 use Modules\Dashboard\Repositories\Eloquent\EloquentWidgetRepository;
+use Modules\Dashboard\Repositories\WidgetRepository;
 use Modules\Workshop\Manager\StylistThemeManager;
 
 class DashboardServiceProvider extends ServiceProvider
@@ -22,18 +23,15 @@ class DashboardServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            'Modules\Dashboard\Repositories\WidgetRepository',
-            function () {
-                $repository = new EloquentWidgetRepository(new Widget());
+        $this->app->bind(WidgetRepository::class, function () {
+            $repository = new EloquentWidgetRepository(new Widget());
 
-                if (! config('app.cache')) {
-                    return $repository;
-                }
-
-                return new CacheWidgetDecorator($repository);
+            if (! config('app.cache')) {
+                return $repository;
             }
-        );
+
+            return new CacheWidgetDecorator($repository);
+        });
     }
 
     public function boot(StylistThemeManager $theme)
