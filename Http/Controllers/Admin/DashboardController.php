@@ -39,7 +39,7 @@ class DashboardController extends AdminBaseController
     {
         $this->requireAssets();
 
-        $widget = $this->widget->findForUser($this->auth->check()->id);
+        $widget = $this->widget->findForUser($this->auth->id());
 
         $customWidgets = json_encode(null);
         if ($widget) {
@@ -62,7 +62,7 @@ class DashboardController extends AdminBaseController
             return Response::json([false]);
         }
 
-        $this->widget->updateOrCreateForUser($widgets, $this->auth->check()->id);
+        $this->widget->updateOrCreateForUser($widgets, $this->auth->id());
 
         return Response::json([true]);
     }
@@ -72,7 +72,7 @@ class DashboardController extends AdminBaseController
      */
     public function reset()
     {
-        $widget = $this->widget->findForUser($this->auth->check()->id);
+        $widget = $this->widget->findForUser($this->auth->id());
 
         if (!$widget) {
             return redirect()->route('dashboard.index')->with('warning', trans('dashboard::dashboard.reset not needed'));
