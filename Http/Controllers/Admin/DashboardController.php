@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Response;
 use Modules\Core\Contracts\Authentication;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Dashboard\Repositories\WidgetRepository;
-use Pingpong\Modules\Repository;
+use Nwidart\Modules\Repository;
 
 class DashboardController extends AdminBaseController
 {
