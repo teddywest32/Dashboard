@@ -1,4 +1,6 @@
-<?php namespace Modules\Dashboard\Providers;
+<?php
+
+namespace Modules\Dashboard\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Traits\CanPublishConfiguration;
@@ -50,7 +52,7 @@ class DashboardServiceProvider extends ServiceProvider
             'dashboard',
             $theme->find(config('asgard.core.core.admin-theme'))->getPath() . '/views/modules/dashboard'
         );
-        
+
         $this->publishConfig('dashboard', 'permissions');
     }
 

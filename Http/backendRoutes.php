@@ -3,9 +3,8 @@
 use Illuminate\Routing\Router;
 
 /** @var Router $router */
-
 $router->get('/', [
-    'as' => 'dashboard.index', 
+    'as' => 'dashboard.index',
     'uses' => 'DashboardController@index',
     'middleware' => 'can:dashboard.index',
 ]);
@@ -17,7 +16,7 @@ $router->group(['prefix' => '/dashboard'], function (Router $router) {
         'middleware' => 'can:dashboard.update',
     ]);
     $router->get('grid', [
-        'as' => 'dashboard.grid.reset', 
+        'as' => 'dashboard.grid.reset',
         'uses' => 'DashboardController@reset',
         'middleware' => 'can:dashboard.reset',
     ]);

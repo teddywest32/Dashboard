@@ -1,4 +1,6 @@
-<?php namespace Modules\Dashboard\Repositories\Cache;
+<?php
+
+namespace Modules\Dashboard\Repositories\Cache;
 
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
 use Modules\Dashboard\Repositories\WidgetRepository;

@@ -1,4 +1,6 @@
-<?php namespace Modules\Dashboard\Foundation\Widgets;
+<?php
+
+namespace Modules\Dashboard\Foundation\Widgets;
 
 use Illuminate\Contracts\View\Factory;
 use Modules\Dashboard\Composers\WidgetViewComposer;

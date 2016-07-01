@@ -1,4 +1,6 @@
-<?php namespace Modules\Dashboard\Http\Controllers\Admin;
+<?php
+
+namespace Modules\Dashboard\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
