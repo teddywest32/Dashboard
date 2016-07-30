@@ -11,7 +11,7 @@ class Widget extends Model
 
     public function user()
     {
-        $driver = config('asgard.user.users.driver');
+        $driver = config('asgard.user.config.driver');
 
         return $this->belongsTo("Modules\\User\\Entities\\{$driver}\\User");
     }
