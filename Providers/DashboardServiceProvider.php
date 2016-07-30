@@ -54,6 +54,7 @@ class DashboardServiceProvider extends ServiceProvider
         );
 
         $this->publishConfig('dashboard', 'permissions');
+        $this->publishConfig('dashboard', 'config');
     }
 
     /**
